@@ -40,9 +40,6 @@ public class StationService {
     }
 
     public Stations findStationsOnPath(List<Long> stationIds) {
-        String ids = stationIds.stream()
-                .map(Object::toString)
-                .collect(Collectors.joining(","));
-        return new Stations(stationDao.findStationsByIds(ids));
+        return new Stations(stationDao.findStationsByIds(stationIds));
     }
 }
